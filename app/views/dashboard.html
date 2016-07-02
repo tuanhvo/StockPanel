@@ -1,0 +1,43 @@
+<p>This is the dashboard view.</p>
+<div class="row">
+    <div class="col-md-3">
+        <stk-watchlist-panel></stk-watchlist-panel>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-globe"></span>
+                Portfolio
+            </div>
+            <div class="panel-body">
+                <div ng-hide="watchlist.length && watchlists[0].stocks.length" class="jumbotron">
+                    <p>Stock Panel, your personal stock investment overview</p>
+                    <p>Create your stocks portfolio</p>
+                </div>
+                <div ng-show="watchlists.length && watchlists[0].stocks.lenght"></div>
+                <div class="row">
+                    <div class="col-me-6">
+                        <div stk-sign-fade="{{marketValue}}" class="well">
+                            <h3>{{marketValue | currency}}</h3>
+                            <h4>Total Market Value</h4>
+                        </div>
+                    </div>
+                    <div class="col=md=6">
+                        <div stk-sign-color="{{dayChange}}" class="well">
+                            <h3>{{dayChange | currency}}</h3>
+                            <h4>Day Change</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div google-chart chart="donutChart" style="{{cssStyle}}"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div google-chart chart="columnChart" style="{{cssStyle}}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
